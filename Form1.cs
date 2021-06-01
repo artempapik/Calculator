@@ -1,121 +1,68 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Calculator
 {
 	public partial class Form1 : Form
 	{
-		public Form1()
-		{
-			InitializeComponent();
-		}
+		public Form1() => InitializeComponent();
 
-		private string action = "";
-		private double firstNumber = 0;
-		private double secondNumber = 0;
-		private double result = 0;
+		private string Action { get; set; } = "";
 
-		private void label1_Click(object sender, EventArgs e)
-		{
+		private double FirstNumber { get; set; } = 0;
 
-		}
+		private double SecondNumber { get; set; } = 0;
 
-		private void button1_Click(object sender, EventArgs e) //cycle for buttons
-		{
-			label1.Text += button1.Text;
-		}
+		private double Result { get; set; } = 0;
 
-		private void button2_Click(object sender, EventArgs e)
-		{
-			label1.Text += button2.Text;
-		}
+		private void button1_Click(object sender, EventArgs e) => AddTextToLabel(button1);
+		private void button2_Click(object sender, EventArgs e) => AddTextToLabel(button2);
+		private void button3_Click(object sender, EventArgs e) => AddTextToLabel(button3);
+		private void button4_Click(object sender, EventArgs e) => AddTextToLabel(button4);
+		private void button5_Click(object sender, EventArgs e) => AddTextToLabel(button5);
+		private void button6_Click(object sender, EventArgs e) => AddTextToLabel(button6);
+		private void button7_Click(object sender, EventArgs e) => AddTextToLabel(button7);
+		private void button8_Click(object sender, EventArgs e) => AddTextToLabel(button8);
+		private void button9_Click(object sender, EventArgs e) => AddTextToLabel(button9);
+		private void button10_Click(object sender, EventArgs e) => AddTextToLabel(button10);
+		private void button15_Click(object sender, EventArgs e) => AddTextToLabel(button15);
 
-		private void button3_Click(object sender, EventArgs e)
-		{
-			label1.Text += button3.Text;
-		}
-
-		private void button4_Click(object sender, EventArgs e)
-		{
-			label1.Text += button4.Text;
-		}
-
-		private void button5_Click(object sender, EventArgs e)
-		{
-			label1.Text += button5.Text;
-		}
-
-		private void button6_Click(object sender, EventArgs e)
-		{
-			label1.Text += button6.Text;
-		}
-
-		private void button7_Click(object sender, EventArgs e)
-		{
-			label1.Text += button7.Text;
-		}
-
-		private void button8_Click(object sender, EventArgs e)
-		{
-			label1.Text += button8.Text;
-		}
-
-		private void button9_Click(object sender, EventArgs e)
-		{
-			label1.Text += button9.Text;
-		}
-
-		private void button10_Click(object sender, EventArgs e)
-		{
-			label1.Text += button10.Text;
-		}
+		private void AddTextToLabel(Button button) => label1.Text += button.Text;
 
 		private void button11_Click(object sender, EventArgs e)
 		{
-			firstNumber = Convert.ToDouble(label1.Text);
+			FirstNumber = Convert.ToDouble(label1.Text);
 			label1.Text = "";
-			action = "+";
+			Action = "+";
 		}
 
 		private void button12_Click(object sender, EventArgs e)
 		{
-			firstNumber = Convert.ToDouble(label1.Text);
+			FirstNumber = Convert.ToDouble(label1.Text);
 			label1.Text = "";
-			action = "-";
+			Action = "-";
 		}
 
 		private void button13_Click(object sender, EventArgs e)
 		{
-			secondNumber = Convert.ToDouble(label1.Text);
-			if (action == "+")
+			SecondNumber = Convert.ToDouble(label1.Text);
+			if (Action == "+")
 			{
-				result = firstNumber + secondNumber;
-				label1.Text = result.ToString();
+				Result = FirstNumber + SecondNumber;
+				label1.Text = Result.ToString();
 			}
-			if (action == "-")
+			if (Action == "-")
 			{
-				result = firstNumber - secondNumber;
-				label1.Text = result.ToString();
+				Result = FirstNumber - SecondNumber;
+				label1.Text = Result.ToString();
 			}
 		}
 
 		private void button14_Click(object sender, EventArgs e)
 		{
 			label1.Text = "";
-			firstNumber = 0;
-			secondNumber = 0;
-		}
-
-		private void button15_Click(object sender, EventArgs e)
-		{
-			label1.Text += button15.Text;
+			FirstNumber = 0;
+			SecondNumber = 0;
 		}
 	}
 }
